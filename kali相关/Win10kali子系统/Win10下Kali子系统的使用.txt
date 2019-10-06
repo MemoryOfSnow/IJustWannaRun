@@ -1,0 +1,7 @@
+wget https://kali.sh/xfce4.sh sudo sh xfce4.sh
+sudo /etc/init.d/xrdp start
+sudo /etc/init.d/xrdp stop
+运行  管理员启动远程桌面mstsc.exe \root
+参考：https://blog.csdn.net/weixin_43303273/article/details/82990794
+win10子系统Linux升级kali https://blog.csdn.net/qq_34691059/article/details/79145792
+Win10 linux子系统下显示图形界面 https://blog.csdn.net/u010525694/article/details/80096187

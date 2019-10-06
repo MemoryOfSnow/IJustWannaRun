@@ -1,0 +1,4 @@
+unable to execute /usr/bin/katoolin: No such file or directory
+chmod +x /usr/bin/katoolin
+sudo katoolin
+vim /usr/bin/katoolin

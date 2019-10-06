@@ -1,0 +1,20 @@
+1.对于Vmware10
+由于安装VMware Tools需要针对新内核重新编译模块，所以必须先安装基本编译系统和内核头文件。
+1.sudo apt-get install build-essential
+2.uname -a 来查看你ubuntu版本
+#安装linux-headers 包
+sudo apt-get install linux-headers-'uname -r'
+
+sudo ./vmware-install.pl
+
+2.ubuntu进行apt-get时候出现Package xxx is not available, but is referred to by another package 错误.
+原因：源过旧
+解决办法：$ sudo apt-get -y update
+
+更新完毕之后，在使用apt-get就没有问题了。
+
+3.configure: error: no acceptable C compiler found in $PATH
+所以得通过apt-get先下载一个gcc，再通过安装包的方式安装低版本gcc
+
+4.checking for suitable m4... configure: error: No usable m4 in $PATH or /usr/5bin (see config.log for reasons).
+解决办法：安装m4这个库

@@ -1,0 +1,4 @@
+man +ЦёБо
+type
+help inner instruction
+outer instruction --help

@@ -1,0 +1,35 @@
+0.mkdir  /mnt/cdrom
+1.挂载DVD光盘到/mnt/cdrom     mount  /dev/sr0  /mnt/cdrom
+2.在目录/etc/yum.repos.d/创建文件文件名.repo 
+touch /etc/yum.repos.d/rhel-source.repo
+nano /etc/yum.repos.d/rhel-source.repo
+3.配置本地yum源
+文件里写入：
+-------------------
+[rhel-yum]
+
+name=rhel7  
+
+baseurl=file:///mnt/cdrom
+
+enabled=1   
+
+gpgcheck=0 
+--------------------------
+、、测试使用yum命令自动安装软件
+
+yum clean all   #清除yum缓存 
+
+yum makecache  #缓存本地yum源中的软件包信息
+5.yum install httpd   #安装apache 
+
+rpm -ql httpd  #查询所有安装httpd的目录和文件 
+systemctl start httpd.service  #启动apache 
+
+systemctl stop httpd.service  #停止apache 
+
+systemctl restart httpd.service  #重启apache 
+
+systemctl enable httpd.service  #设置开机启动 
+
+RHEL 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙。

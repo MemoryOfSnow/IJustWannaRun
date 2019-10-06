@@ -1,0 +1,11 @@
+https://blog.csdn.net/u011225629/article/details/78753946
+Tor在Kali软件库中就用；想直接从软件库安装它，只要打开终端，键入这个命令：
+
+apt-get install tor 
+从命令行启用Tor服务：
+
+service tor start 
+使用proxychains命令和Tor，实现安全浏览：
+
+proxychains iceweasel 
+为了在本文中确保行文简单，我只显示了使用Tor的一方面。你可以在《在Kali Linux中安装Tor》一文中详细阅读完整细节，详见http://www.blackmoreops.com/2013/12/16/installing-tor-kali-linux/。

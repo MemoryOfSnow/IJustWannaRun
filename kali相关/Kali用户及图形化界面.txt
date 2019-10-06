@@ -1,0 +1,43 @@
+C:\Users\Paul C>kali
+root@DESKTOP-1N6H36C:~# useradd -m Paul
+root@DESKTOP-1N6H36C:~# passwd Paul
+Enter new UNIX password:
+Retype new UNIX password:
+Sorry, passwords do not match
+passwd: Authentication token manipulation error
+passwd: password unchanged
+root@DESKTOP-1N6H36C:~# passwd Paul
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+root@DESKTOP-1N6H36C:~# usermod -a -G sudo Paul
+root@DESKTOP-1N6H36C:~# chsh -s /bin/bash Paul
+root@DESKTOP-1N6H36C:~#
+sudo apt-get install xorg
+
+sudo apt-get update
+安装 xorg
+sudo apt-get install xorg
+安装xfce4
+sudo apt-get install xfce4
+安装xrdp
+sudo apt-get install xrdp
+配置xrdp
+sudo sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
+上面是配置端口
+4
+向xsession中写入xfce4-session
+sudo echo xfce4-session >~/.xsession
+重启xrdp服务
+sudo service xrdp restart
+如果有防火墙，允许就好了。
+5
+如果当前是root用户，那么切换成普通用户test用以下命令：
+su - test 
+root@ubuntu:~# su - test 
+[sudo] password for test: 
+test@ubuntu:~$ 
+如果要切换回root用户，那么用以下命令：su或su -用户名root可以省略不写。切换回root用户时要输入root密码。一般直接输入exit命令来切换回root用户，这样就不用输入密码。 
+test@ubuntu:~$ exit 
+logout 
+root@ubuntu:~# 

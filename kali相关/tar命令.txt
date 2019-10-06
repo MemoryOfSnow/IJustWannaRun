@@ -1,0 +1,338 @@
+# xz -d node-v8.11.1-linux-x64.tar.xz
+
+# tar -xvf node-v8.11.1-linux-x64.tar.xz
+
+也可以直接解压
+
+# tar -xvJf node-v8.11.1-linux-x64.tar.xz
+
+解压到指定目录
+
+tar -zxvf flash_player_npapi_linux.x86_64.tar.gz -C mm
+tar -zxvf flash_player_npapi_linux.x86_64.tar.gz --directory mm
+tar -zxvf flash_player_npapi_linux.x86_64.tar.gz --directory ./mm/
+
+ 
+
+tar命令详解
+
+在Linux中用tar来存储或者展开tar的存档文件.必须配合参数使用
+
+ 
+
+实例
+
+1:压缩一个文件为tar.gz后缀.  (注意,tar保存的目录是#pwd 所在的目录)
+
+#tar zcvf test1.tar.gz /home/www    
+
+或者#tar cvf test2.tar /home/www
+
+#gzip -q test2.tar 
+
+
+2:解压一个后缀为tar.gz的文件.
+
+#tar zxvf test1.tar.gz       (解压后会保存成 test1的一个文件夹)
+
+或者#gunzip test2.tar.gz
+
+#tar xvf test2.tar
+
+3:用一个命令完成压缩
+
+#tar cvf - /home/www/ | gzip -qc > test3.tar.gz
+4:用一个命令完成解压
+
+#gunzip -c test3.tar.gz | tar xvf -
+
+#gunzip test4.tgz
+
+#tar zxvf test5.tar.Z
+
+
+5:tar打包时,去掉某些子目录或者指定文件,使用 -exclude {dirname,filename} 
+
+比如我们要打包/home/www网站全站,放在/home目录下,除了一些比如db_m(phpmyadmin)之类的,本地有就不需要
+
+#tar zcvf /home/bk0406-1717.tar.gz /home/www 
+--exclude /home/www/db_m --exclude /home/www/images --exclude /home/docs --exclude=/home/www/config.inc.PHP
+
+这里需要注意的是,exclude 后面的目录不能带 /  带了 /就会失效
+
+
+6:查看tar包里面的内容
+
+#tar -tvf /home/bk0406-1717.tar.gz
+
+
+我们在终端里面#man tar
+
+可以看见tar的参数有
+
+-A, --catenate, --concatenate
+将一存档与已有的存档合并
+
+-c, --create    
+
+建立新的存档
+
+-d, --diff, --compare
+
+比较存档与当前文件的不同之处
+
+--delete                
+
+从存档中删除
+
+-r, --append            
+
+附加到存档结尾
+
+-t, --list              
+
+列出存档中文件的目录
+
+-u, --update            
+
+仅将较新的文件附加到存档中
+
+-x, --extract, --get            
+
+从存档展开文件
+
+ 
+
+其他参数
+
+--atime-preserve       
+
+不改变转储文件的存取时间
+
+-b, --block-size N      
+
+指定块大小为 Nx512 字节（缺省时 N=20)
+
+-B, --read-full-blocks  
+
+读取时重组块
+
+-C, --directory DIR     
+
+转到指定的目录
+
+--checkpoint            
+
+读取存档时显示目录名
+
+-f, --file [HOSTNAME:]F 
+
+指定存档或设备 (缺省为 /dev/rmt0)
+
+--force-local           
+
+强制使用本地存档，即使存在克隆
+
+-F, --info-script F --new-volume-script F
+
+在每个磁盘结尾使用脚本 F （隐含 -M）
+
+-G, --incremental       
+
+建立老 GNU 格式的备份
+
+-g, --listed-incremental F
+
+建立新 GNU 格式的备份
+
+-h, --dereference       
+
+不转储动态链接，转储动态链接指向的文件。
+
+-i, --ignore-zeros      
+
+忽略存档中的 0 字节块（通常意味着文件结束）
+
+--ignore-failed-read    
+
+在不可读文件中作 0 标记后再退出？？？
+
+-k, --keep-old-files    
+
+保存现有文件；从存档中展开时不进行覆盖
+
+-K, --starting-file F   
+
+从存档文件 F 开始
+
+-l, --one-file-system   
+
+在本地文件系统中创建存档
+
+-L, --tape-length N     
+
+在写入 N*1024 个字节后暂停，等待更换磁盘
+
+-m, --modification-time 
+
+当从一个档案中恢复文件时，不使用新的时间标签
+
+-M, --multi-volume      
+
+建立多卷存档,以便在几个磁盘中存放
+
+-N, --after-date DATE, --newer DATE     
+
+仅存储时间较新的文件
+
+-o, --old-archive, --portability        
+
+以 V7 格式存档，不用 ANSI 格式
+
+-O, --to-stdout         
+
+将文件展开到标准输出
+
+-p, --same-permissions, --preserve-permissions
+
+展开所有保护信息
+
+-P, --absolute-paths    
+
+不要从文件名中去除 '/'
+
+--preserve              
+
+like -p -s 与 -p -s 相似
+
+-R, --record-number     
+
+显示信息时同时显示存档中的记录数
+
+--remove-files          
+
+建立存档后删除源文件
+
+-s, --same-order, --preserve-order      
+
+
+
+--same-owner
+
+展开以后使所有文件属于同一所有者
+
+-S, --sparse
+
+高效处理
+
+-T, --files-from F
+
+从文件中得到要展开或要创建的文件名
+
+--null
+
+读取空结束的文件名，使 -C 失效
+
+--totals
+
+显示用 --create 参数写入的总字节数
+
+-v, --verbose
+
+详细显示处理的文件
+
+-V, --label NAME
+
+为存档指定卷标
+
+--version
+
+显示 tar 程序的版本号
+
+-w, --interactive, --confirmation
+
+每个操作都要求确认
+
+-W, --verify
+
+写入存档后进行校验
+
+--exclude FILE
+
+不把指定文件包含在内
+
+-X, --exclude-from FILE
+
+从指定文件中读入不想包含的文件的列表
+
+-y, --bzip2, --bunzip2
+
+用 bzip2 对存档压缩或解压
+
+-Z, --compress, --uncompress
+
+用 compress 对存档压缩或解压
+
+-z, --gzip, --ungzip
+
+用 gzip 对存档压缩或解压
+
+--use-compress-program PROG
+
+用 PROG 对存档压缩或解压 ( PROG 需能接受 -d 参数）
+
+--block-compress
+
+为便于磁盘存储，按块记录存档
+
+-[0-7][lmh]
+
+指定驱动器和密度[高中低]
+
+
+如果打包绝对路径的时候,出现下面的
+
+tar: Removing leading `/’ from member names
+通常是在两台环境相似的机器上进行同步复制的时候，才有需要使用绝对路径进行打包。使用绝对路径打包时如果不指定相应的参数，tar会产生一句警告信息：”tar: Removing leading `/’ from member names”，并且实际产生的压缩包会将绝对路径转化为相对路径。
+
+所以打包和解开的时候都使用参数 -P 就可以解决  tar -zxvfP
+
+
+
+ 
+
+指定路径的时候需要路径必须存在
+
+比如 解压 tar -zxvf ***.tar.gz -C ../dir
+
+
+
+
+
+压缩 
+tar –cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg 
+tar –czf jpg.tar.gz *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz 
+tar –cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2 
+tar –cZf jpg.tar.Z *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z 
+rar a jpg.rar *.jpg //rar格式的压缩，需要先下载rar for linux 
+zip jpg.zip *.jpg //zip格式的压缩，需要先下载zip for linux 
+
+
+解压 
+tar –xvf file.tar //解压 tar包 
+tar -xzvf file.tar.gz //解压tar.gz 
+tar -xjvf file.tar.bz2 //解压 tar.bz2 
+tar –xZvf file.tar.Z //解压tar.Z 
+unrar e file.rar //解压rar 
+unzip file.zip //解压zip 
+
+
+1、*.tar 用 tar –xvf 解压 
+2、*.gz 用 gzip -d或者gunzip 解压 
+3、*.tar.gz和*.tgz 用 tar –xzf 解压 
+4、*.bz2 用 bzip2 -d或者用bunzip2 解压 
+5、*.tar.bz2用tar –xjf 解压 
+6、*.Z 用 uncompress 解压 
+7、*.tar.Z 用tar –xZf 解压 
+8、*.rar 用 unrar e解压 
+9、*.zip 用 unzip 解压
