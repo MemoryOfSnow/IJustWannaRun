@@ -1,3 +1,17 @@
+
+许多人使用Ubuntu发现无法使用root，或者不知道怎么切换到root用户。一条命令足以
+```
+sudo su root
+```
+**上面的命令能够成功执行的前提是你得在super用户组里**
+然后输入你的用户密码即可；
+然后在root用户下，修改root用户密码，例如：
+passwd root
+即可将root的密码改为root
+切换回普通用户：
+su user(这里是你的用户名)
+
+
 1.对于Vmware10
 由于安装VMware Tools需要针对新内核重新编译模块，所以必须先安装基本编译系统和内核头文件。
 1.sudo apt-get install build-essential
