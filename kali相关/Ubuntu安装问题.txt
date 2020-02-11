@@ -12,6 +12,8 @@ passwd root
 su user(这里是你的用户名)
 
 
+
+
 1.对于Vmware10
 由于安装VMware Tools需要针对新内核重新编译模块，所以必须先安装基本编译系统和内核头文件。
 1.sudo apt-get install build-essential

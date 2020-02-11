@@ -1,4 +1,7 @@
- 
+## 10组常用nmap指令
+- 1.nmap -iL <inputFilename>
+- 2.nmap -iR <num>//0意味着无休止的扫描
+- 3.nmap -sS -PS80 -iR 0 -p 80  
 nmap -F -sT -v nmap.org  #
 -F：扫描100个最有可能开放的端口   -v 获取扫描的信息   
 -sT：采用的是TCP扫描 不写也是可以的，默认采用的就是TCP扫描这种扫描方法准确，速度快，但是这样的扫描容易被防火墙和IDS发现并记录，所以这种方法，实际中并不多用
