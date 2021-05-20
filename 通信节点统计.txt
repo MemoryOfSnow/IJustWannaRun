@@ -1,0 +1,50 @@
+# the P2P network status.
+./bootnode rpc local net session
+./bootnode rpc local net session --id <node_id>
+
+
+./bootnode rpc local txpool status
+./bootnode rpc local txpool content
+./bootnode rpc local txpool inspect
+
+
+./bootnode rpc local sync-phase
+
+
+./bootnode rpc local send --from aanmnunpgw9y0c71wxwcnyd8zkzbugz97uy67096b2 --to aas2myb18ae8sx2h1fwfa6cdhs8mkezxv2pmaxdux3 --value 0x5 --password 1234
+./bootnode rpc local send --from <alice_address> --value 0x0 --gas 0x‭2DC6C0‬ --data <HEX_contract_bytecodes> --password 123456
+
+
+
+#账户信息 1234
+./bootnode account new --password config/password 
+
+./bootnode account list
+miner
+0x14680fda6e5516f2bba0403ed49c9659db4f6f99
+
+sponser
+0x107703f309c7455eca91a037a734816b7019ac3f
+
+
+receiver
+0x14e34244cf643ff34047a705d2b43db8efa4102e
+
+
+0x1605fe89eccf79e9c26eaee867870e7a18b233ef
+
+
+0x1d1c4ea52d678133be224ff64f0c7505639b7ff4
+
+
+#expe2 1234
+./conflux account new --password config/password
+0x1addacac1f34bc3dcf2154b1949e5bd4518eb203
+0x13c01372e7147aada4f52392d18b6dc64e48a024
+
+./conflux account list
+
+net102:aanmnunpgw9y0c71wxwcnyd8zkzbugz97uy67096b2
+net102:aas2myb18ae8sx2h1fwfa6cdhs8mkezxv2pmaxdux3
+
+./conflux rpc local send --from 14680fda6e5516f2bba0403ed49c9659db4f6f99 --to 14e34244cf643ff34047a705d2b43db8efa4102e --value 0x5 --password 1234
